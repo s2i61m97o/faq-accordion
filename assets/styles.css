@@ -1,0 +1,107 @@
+body {
+  background-color: #f8eeff;
+  background-image: url("/faq-accordion/assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: auto 37%;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.faq-card {
+  width: 87%;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1rem 2.5rem #8b6990;
+}
+
+header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+header img {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+header h1 {
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(2rem, 1.48rem + 2.24vw, 3.5rem);
+  font-weight: 700;
+  line-height: 4rem;
+  color: #301534;
+}
+
+details {
+  overflow: hidden;
+}
+details summary {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
+  font-weight: 600;
+  line-height: 1.25rem;
+  color: #301534;
+  margin-block: 1.5rem;
+  list-style: none;
+}
+details summary::after {
+  content: url("/faq-accordion/assets/images/icon-plus.svg");
+}
+details p {
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(0.875rem, 0.83rem + 0.19vw, 1rem);
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #8b6990;
+  margin-block: 1.5rem;
+}
+
+details[open] summary {
+  margin-block-end: 0;
+}
+details[open] summary::after {
+  content: url("/faq-accordion/assets/images/icon-minus.svg");
+}
+
+hr {
+  width: 100%;
+  color: #f8eeff;
+}
+
+@media (min-width: 32rem) {
+  body {
+    background-image: url("/faq-accordion/assets/images/background-pattern-desktop.svg");
+    background-size: auto 38%;
+  }
+  .faq-card {
+    width: 65%;
+  }
+  header img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  header h1 {
+    margin-block-end: 2rem;
+  }
+}
+@media (min-width: 60rem) {
+  body {
+    background-size: auto 42%;
+  }
+  .faq-card {
+    width: 50%;
+  }
+  details summary:hover {
+    color: #ad28eb;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

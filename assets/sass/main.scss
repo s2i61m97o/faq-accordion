@@ -1,0 +1,114 @@
+@use "base" as b;
+@use "mixins" as mx;
+
+body {
+  background-color: b.$purple-100;
+  background-image: url("/faq-accordion/assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: auto 37%;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.faq-card {
+  width: 87%;
+  margin: auto;
+  background-color: b.$white;
+  border-radius: b.$sp-100;
+  padding: 1.5rem;
+  box-shadow: 0 b.$sp-200 b.$sp-500 b.$purple-600;
+}
+
+header {
+  display: flex;
+  gap: b.$sp-200;
+  align-items: center;
+
+  img {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  h1 {
+    @include mx.txt-prst-1;
+    color: b.$purple-950;
+  }
+}
+
+details {
+  overflow: hidden;
+  summary {
+    width: 100%;
+    display: flex;
+    gap: b.$sp-300;
+    align-items: center;
+    justify-content: space-between;
+    @include mx.txt-prst-2;
+    color: b.$purple-950;
+    margin-block: b.$sp-300;
+    list-style: none;
+  }
+
+  summary::after {
+    content: url("/faq-accordion/assets/images/icon-plus.svg");
+  }
+
+  p {
+    @include mx.txt-prst-3;
+    color: b.$purple-600;
+    margin-block: b.$sp-300;
+  }
+}
+
+details[open] {
+  summary {
+    margin-block-end: 0;
+  }
+  summary::after {
+    content: url("/faq-accordion/assets/images/icon-minus.svg");
+  }
+}
+
+hr {
+  width: 100%;
+  color: b.$purple-100;
+}
+
+@media (min-width: 32rem) {
+  body {
+    background-image: url("/faq-accordion/assets/images/background-pattern-desktop.svg");
+    background-size: auto 38%;
+  }
+
+  .faq-card {
+    width: 65%;
+  }
+
+  header {
+    img {
+      height: b.$sp-500;
+      width: b.$sp-500;
+    }
+    h1 {
+      margin-block-end: b.$sp-400;
+    }
+  }
+}
+
+@media (min-width: 60rem) {
+  body {
+    background-size: auto 42%;
+  }
+
+  .faq-card {
+    width: 50%;
+  }
+
+  details {
+    summary:hover {
+      color: b.$violet;
+    }
+  }
+}
